@@ -6,24 +6,25 @@ Here is an example of a desired JSON output:
 ```json
 {{
   "merchant_name": "Example Store",
-  "merchant_address": "123 Main St, Anytown, USA 12345",
-  "transaction_date": "2023-01-01",
-  "transaction_time": "12:34:56",
-  "total_amount": 75.50,
+  "address": "123 Main St, Anytown, USA 12345",
+  "datetime": "2026-04-29T23:22:35",
+  "subtotal": 69.41
+  "total": 75.50,
+  "payment_method": "Discover"
+  "card_number_ending": "1234"
   "line_items": [
     {{
-      "item_name": "Item 1",
-      "item_quantity": 2,
-      "item_price": 20.00,
-      "item_total": 40.00
+      "item": "Garlic",
+      "quantity": 1,
+      "price": 1.39
     }},
     {{
-      "item_name": "Item 2",
-      "item_quantity": 1,
-      "item_price": 35.50,
-      "item_total": 35.50
+      "item": "Honey",
+      "quantity": 2,
+      "price": 13.98
     }}
-  ]
+  ],
+  "flagged": false
 }}
 ```
 
@@ -32,6 +33,10 @@ Please extract the information from the receipt image and provide it in the foll
 ```json
 {json_schema_content}
 ```
+
+If you cannot find one of the fields, leave it blank and set the flagged field to true.
+
+
 """
 
 USER_PROMPT = "Please extract the information from this receipt image."
