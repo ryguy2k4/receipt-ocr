@@ -7,7 +7,6 @@ Rules:
 - Do NOT infer or hallucinate missing data.
 - Use "UNKNOWN" for missing text fields.
 - Use null for missing numeric fields, if allowed by the schema.
-- The root flagged field must be true if ANY root field is "UNKNOWN" or null.
 
 Merchant:
 - merchant_name must contain ONLY the store/business name.
@@ -25,9 +24,8 @@ Datetime:
 - If the datetime is not visible on the receipt, set datetime to exactly "UNKNOWN".
 
 Line items:
-- The field "item" in each line item must be the exact receipt text, even if shortened or abbreviated.
-- Do NOT expand, normalize, or rename item text.
-- Each line item flagged field must be true if any line item field is "UNKNOWN" or null.
+- The field "raw_item" in each line item must be the exact receipt text, even if shortened or abbreviated, but should NOT include any leading numbers.
+- The field "inferred_item" in each line item should expand any shortened or abbreviated words, omit brand names, and infer what the item is generically.
 
 Schema:
 {json_schema_content}
