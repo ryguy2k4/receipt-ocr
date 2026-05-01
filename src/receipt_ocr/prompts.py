@@ -24,8 +24,42 @@ Datetime:
 - If the datetime is not visible on the receipt, set datetime to exactly "UNKNOWN".
 
 Line items:
-- The field "raw_item" in each line item must be the exact receipt text, even if shortened or abbreviated, but should NOT include any leading numbers.
-- The field "inferred_item" in each line item should expand any shortened or abbreviated words, omit brand names, and infer what the item is generically.
+- The field "raw_item" in each line item must be the exact receipt text, even if shortened or abbreviated.
+- The field "normalized_item" in each line item should expand any shortened or abbreviated words, omit brand names, and infer what the item is generically.
+- The fields "item_category" and "item_subcategory" should reflect the category hierarchy listed below, which includes examples of what items go in each category.
+- When categorizing items, you have some discretion in choosing the category, but if an item does not fit well into a category or subcategory, give it a value of "OTHER".
+
+Categories:
+- Groceries (consumable food/drink)
+    - Produce (e.g., apples, carrots, frozen peas, canned tomatoes)
+    - Dry Goods (e.g., rice, dry beans, pasta)
+    - Bakery (e.g., bread, cookies)
+    - Meat/Protein (e.g., chicken, beef, eggs)
+    - Dairy (e.g., butter, cream, yogurt)
+    - Ingredients (e.g., oil, spices, sauces)
+    - Alcohol (e.g., beer, wine, vodka)
+    - Beverages (e.g., juice, gatorade, iced tea)
+    - Snacks (e.g., candy, trail mix, granola bars)
+    - Other
+- Household (non-food consumables + home maintenance)
+    - Household Consumables (e.g., paper towels, toilet paper, dish soap, hand soap)
+    - Personal Hygiene (e.g., toothpaste, body wash, shampoo, shaving cream)
+    - Kitchen Goods (e.g., utensils, appliances, tools)
+    - Home Goods (e.g., furniture, decorations)
+    - Outdoor & Garden (e.g., soil, lumber, seeds)
+    - Other
+- Shopping (discretionary / personal items)
+    - Clothing (e.g., pants, socks, shirts)
+    - Technology (e.g., cables, phone case, laptop)
+    - Gifts (requires manual tag)
+    - Souvenirs (requires manual tag)
+    - Hobbies (requires manual tag)
+    - Other
+- Auto & Transport
+    - Maintenance (e.g., oil filter, oil, car parts)
+    - Gas
+    - Other
+- Other
 
 Schema:
 {json_schema_content}
