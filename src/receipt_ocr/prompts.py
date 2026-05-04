@@ -13,8 +13,9 @@ Merchant:
 - If merchant_name is not found, use NULL.
 
 Address:
-- address must only contain street, city, and state, each delimited by semicolon.
+- address must only contain street, city, and state.
 - address should be stripped of any punctuation.
+- street, city, and state must each be delimited by a comma.
 - Do NOT include phone numbers, store numbers, websites, or extra receipt text.
 
 Datetime:
