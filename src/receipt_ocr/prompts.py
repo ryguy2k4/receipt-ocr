@@ -5,19 +5,25 @@ Rules:
 - Output ONLY valid JSON matching the provided schema.
 - Do NOT include markdown, comments, explanations, or extra keys.
 - Do NOT infer or hallucinate missing data.
-- Use null for any missing fields, if allowed by the schema.
+- Use NULL for any missing fields.
 
 Merchant:
 - merchant_name must contain ONLY the store/business name.
 - Do NOT include extra text such as Store Director names, employee names, phone numbers, slogans, or receipt labels.
+- If merchant_name is not found, use NULL.
 
 Address:
 - address must only contain street, city, and state with each component separated by a semicolon.
+- address should be stripped of any punctuation.
 - Do NOT include phone numbers, store numbers, websites, or extra receipt text.
 
 Datetime:
 - datetime must be the transaction datetime.
 - datetime must use exactly this format: YYYY-MM-DDTHH:MM:SS.
+
+Card Number Ending:
+- This is the last 4 digits of the payment method.
+- These numbers will more likely than not be 1281 or 9487.
 
 Line items:
 - The field "raw_item" in each line item must be the exact receipt text, even if shortened or abbreviated.
