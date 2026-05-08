@@ -13,9 +13,7 @@ Merchant:
 - If merchant_name is not found, use NULL.
 
 Address:
-- address must only contain street, city, and state.
-- address should be stripped of any punctuation.
-- street, city, and state must each be delimited by a comma.
+- address must be formatted as "street, city state".
 - Do NOT include phone numbers, store numbers, websites, or extra receipt text.
 
 Datetime:
@@ -24,7 +22,7 @@ Datetime:
 
 Card Number Ending:
 - This is the last 4 digits of the payment method.
-- These numbers will more likely than not be 1281 or 9487.
+- These numbers will more likely than not be 1281, 9487, or 5711.
 
 Line items:
 - The field "raw_item" in each line item must be the exact receipt text, even if shortened or abbreviated.
@@ -54,9 +52,6 @@ Categories:
 - Shopping (discretionary / personal items)
     - Clothing (e.g., pants, socks, shirts)
     - Technology (e.g., cables, phone case, laptop)
-    - Gifts (requires manual tag)
-    - Souvenirs (requires manual tag)
-    - Hobbies (requires manual tag)
     - Other
 - Auto & Transport
     - Maintenance (e.g., oil filter, oil, car parts)
